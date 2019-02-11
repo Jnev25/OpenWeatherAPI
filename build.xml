@@ -11,6 +11,7 @@
     <path id="WeatherAPI.classpath">
         <pathelement location="bin"/>
         <pathelement location="src/weather_api/java-json.jar"/>
+        <pathelement location="build.xml"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -47,5 +48,10 @@
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
+    </target>
+    <target name="OpenWeather (1)">
+        <java classname="weather_api.OpenWeather" failonerror="true" fork="yes">
+            <classpath refid="WeatherAPI.classpath"/>
+        </java>
     </target>
 </project>
